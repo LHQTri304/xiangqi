@@ -14,12 +14,12 @@ import java.util.Map;
 
 @RestController
 public class HealthController {
-    @GetMapping("/api/health")
+    @GetMapping("/health/hello")
     public ResponseEntity<String> health() {
         return ResponseEntity.ok("Server is running");
     }
 
-    @GetMapping("/api/health-auth")
+    @GetMapping("/health/auth")
     public ResponseEntity<Map<String, Object>> healthAuth(JwtAuthenticationToken token) {
         if (token == null) {
             var problem = Map.of("error", (Object) "User not authenticated");
