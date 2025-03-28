@@ -6,7 +6,7 @@ export default function Token() {
   const { data, isLoading } = useQuery({
     queryKey: ["token"],
     queryFn: async () => {
-      const response = await api.get("/api/health-auth");
+      const response = await api.get("/health/auth");
       return response.data;
     }
   });
