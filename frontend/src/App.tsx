@@ -1,7 +1,6 @@
 import { Chessboard } from "react-xiangqiboard";
 import { Button } from "./components/ui/button";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router";
 import { useEffect } from "react";
 import NewGame from "./NewGame";
 
