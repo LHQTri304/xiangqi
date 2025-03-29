@@ -1,4 +1,14 @@
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: jdbc:postgresql://database:5432/postgres
   database:
     image: postgres:16.4
     environment:
