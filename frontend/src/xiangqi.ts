@@ -1,7 +1,7 @@
 export default class Xiangqi {
-  private board: string[][];
+  private board: string[][] = [];
   private currentPlayer: "w" | "b" = "w"; // 'w' for red, 'b' for black
-  private moveCount: number;
+  private moveCount: number = 0;
 
   /**
    * Initialize a Xiangqi game from FEN notation
