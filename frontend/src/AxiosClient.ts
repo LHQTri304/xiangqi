@@ -1,7 +1,15 @@
-import axios from "axios";
+import axios  from "axios";
+
+
+
+let baseURL = "https://xiangqi-backend-e4f524a5a2ad.herokuapp.com";
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:8080";
+}
+  
 
 let api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: baseURL, 
 });
 
 api.interceptors.request.use(
