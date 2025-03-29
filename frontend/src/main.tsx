@@ -9,7 +9,7 @@ import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import OnlineGame from "./OnlineGame.tsx";
 import {StompSessionProvider} from "react-stomp-hooks";
 import NewGame from "./NewGame.tsx";
-
+ 
 const queryClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
