@@ -3,6 +3,7 @@ import { Button } from "./components/ui/button";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router";
 import { useEffect } from "react";
+import NewGame from "./NewGame";
 
 function App() {
   const {
@@ -40,12 +41,16 @@ function App() {
             <h1>Welcome, {user!.name}</h1>
             <h2>Email: {user!.email}</h2>
             <h2>Sub: {user!.sub}</h2>
-            <Button variant="destructive">
-              <Link to="/token">Hello</Link>
-            </Button>
-            <Button onClick={() => logout()} variant="destructive">
-              Logout
-            </Button>
+            <div className="flex gap-5 w-full flew-row">
+              <NewGame className="w-1/2" />
+              <Button
+                onClick={() => logout()}
+                variant="destructive"
+                className="w-1/2"
+              >
+                Logout
+              </Button>
+            </div>
           </div>
         )}
       </div>
