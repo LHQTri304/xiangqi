@@ -1,6 +1,6 @@
 export default class Xiangqi {
   private board: string[][];
-  private currentPlayer: "w" | "b"; // 'w' for red, 'b' for black
+  private currentPlayer: "w" | "b" = "w"; // 'w' for red, 'b' for black
   private moveCount: number;
 
   /**
@@ -112,6 +112,37 @@ export default class Xiangqi {
   }
 
   /**
+   * Make a move on the board
+   * @param move - Object containing from and to positions
+   * @returns Boolean indicating if the move was successful
+   */
+  move({from, to}: { from: string; to: string }): boolean {
+    const fromCoords = this.positionToCoordinates(from);
+    const toCoords = this.positionToCoordinates(to);
+    console.log(`currentPlayer ${this.currentPlayer}`)
+
+    if (!this.isLegalMove(fromCoords, toCoords)) {
+      console.log(`isLegalMove ${this.currentPlayer}`)
+      return false;
+    }
+
+    // Make the move
+    const [fromRow, fromCol] = fromCoords;
+    const [toRow, toCol] = toCoords;
+
+    this.board[toRow][toCol] = this.board[fromRow][fromCol];
+    this.board[fromRow][fromCol] = "";
+
+    // Update player and move count
+    this.currentPlayer = this.currentPlayer === "w" ? "b" : "w";
+    this.moveCount++;
+
+    console.log("after player: ", this.currentPlayer);
+
+    return true;
+  }
+
+  /**
    * Check if a move is legal
    * This is a simplified implementation and doesn't check all Xiangqi rules
    * @param fromCoords - Starting coordinates [row, col]
@@ -137,10 +168,15 @@ export default class Xiangqi {
 
     // Check if the piece belongs to the current player
     const isPieceRed = piece === piece.toUpperCase();
+    console.log(this.boardAsStr());
+    console.log(piece, isPieceRed);
+    console.log(`cond 1 ${this.currentPlayer}`, isPieceRed, this.currentPlayer === "b");
+    console.log(`cond 2 ${this.currentPlayer}`, !isPieceRed, this.currentPlayer === "w");
     if (
-      (isPieceRed && this.currentPlayer !== "w") ||
-      (!isPieceRed && this.currentPlayer !== "b")
+        (isPieceRed && this.currentPlayer === "b") ||
+        (!isPieceRed && this.currentPlayer === "w")
     ) {
+      console.log("invalud");
       return false; // Not the current player's piece
     }
 
@@ -157,33 +193,6 @@ export default class Xiangqi {
     // (Chariot, Horse, Elephant, Advisor, General, Cannon, Soldier)
 
     return true; // Simplified for this implementation
-  }
-
-  /**
-   * Make a move on the board
-   * @param move - Object containing from and to positions
-   * @returns Boolean indicating if the move was successful
-   */
-  move({ from, to }: { from: string; to: string }): boolean {
-    const fromCoords = this.positionToCoordinates(from);
-    const toCoords = this.positionToCoordinates(to);
-
-    if (!this.isLegalMove(fromCoords, toCoords)) {
-      return false;
-    }
-
-    // Make the move
-    const [fromRow, fromCol] = fromCoords;
-    const [toRow, toCol] = toCoords;
-
-    this.board[toRow][toCol] = this.board[fromRow][fromCol];
-    this.board[fromRow][fromCol] = "";
-
-    // Update player and move count
-    this.currentPlayer = this.currentPlayer === "w" ? "b" : "w";
-    this.moveCount++;
-
-    return true;
   }
 
   /**
