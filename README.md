@@ -8,8 +8,8 @@
 
 ## Frontend
 
--   Clone git về:<a href="https://github.com/012e/xiangqi">xiangqi</a>
--   Mở terminal tại thư mục **_Xiangqi/frontend_**
+-   Clone git về: <a href="https://github.com/012e/xiangqi">xiangqi</a>
+-   Mở terminal tại thư mục **Xiangqi/frontend**
 -   \*Nếu chưa tải **_pnpm_** (đã tải rồi bỏ qua bước này):
     **_npm install -g pnpm@latest_**
 -   Tải các thư viện cần thiết: **_pnpm i_**
