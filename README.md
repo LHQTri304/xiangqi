@@ -27,7 +27,6 @@
 
 # Hướng dẫn sử dụng _test_ cho logic bàn cờ
 
--   Mở terminal tại thư mục **_xiangqi/frontend_**
 -   Tải các thư viện cần thiết: **_pnpm i_**
 -   Run test: **_pnpm test_**
     (Các test sử dụng để kiểm tra tính đúng đắn của các hàm logic)
