@@ -1,8 +1,9 @@
 import {useState} from "react";
 import {useStompClient, useSubscription} from "react-stomp-hooks";
 import {useAuth0} from "@auth0/auth0-react";
-import Xiangqi from "./xiangqi";
+import Xiangqi from "./fake-xiangqi.ts";
 
+// WARN: chưa có kiểm tra nước đi hợp lệ
 export function useOnlineGame(gameId: string | undefined) {
     const {user} = useAuth0();
     const stompClient = useStompClient();

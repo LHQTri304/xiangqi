@@ -1,3 +1,4 @@
+// DOES NOT VALIDATE MOVES
 export default class Xiangqi {
   private board: string[][] = [];
   private currentPlayer: "w" | "b" = "w"; // 'w' for red, 'b' for black
