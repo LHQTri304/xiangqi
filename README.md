@@ -15,7 +15,7 @@
 -   Tải các thư viện cần thiết: **_pnpm i_**
 -   Run frontend: **_pnpm run dev_**
 
-# Backend
+## Backend
 
 -   Clone git về: <a href="https://github.com/012e/xiangqi">xiangqi</a>
 -   Dùng IntelliJ (có thể dùng bất kỳ IDE nào ở đây chúng tôi dùng IntelliJ)
